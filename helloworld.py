@@ -11,4 +11,4 @@ if __name__ == '__main__':
 
     __version__ = '0.1.0'
     NAME = 'Azure Pipeline'
-    print("Hello %{NAME}!")
+    print(f'Hello {NAME}!')
