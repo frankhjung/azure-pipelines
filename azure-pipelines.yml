@@ -1,0 +1,33 @@
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.7'
+    architecture: 'x64'
+
+- script: |
+    python --version
+    pip --version
+    pip install virtualenv
+    virtualenv venv
+    source venv/bin/activate
+    pip install yapf
+  displayName: dependencies
+
+- script: |
+    yapf --diff --style google helloworld.py
+    pylint helloworld.py
+  displayName: check
+
+- script: |
+    python -m main
+  displayName: run
+  
