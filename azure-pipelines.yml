@@ -25,6 +25,6 @@ steps:
   displayName: check
 
 - script: |
-    python -m main
+    python -m helloworld
   displayName: run
   
