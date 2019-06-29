@@ -16,10 +16,7 @@ steps:
 - script: |
     python --version
     pip --version
-    pip install virtualenv
-    virtualenv venv
-    source venv/bin/activate
-    pip install yapf
+    pip install yapf pylint
   displayName: dependencies
 
 - script: |
